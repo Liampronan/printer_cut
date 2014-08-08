@@ -1,0 +1,10 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+  <%= f.input :email_address %>
+  <%= f.input :address %>
+  <%= f.input :pic_url %>
+  <%= f.association :devices %>
+
+<% end %>

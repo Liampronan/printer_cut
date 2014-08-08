@@ -1,2 +1,6 @@
+<% if user.pic_url %>
+  <td height='200'><%= image_tag user.pic_url, class: 'img-rounded' %></td>
+<% end %>
 <td><%= link_to user.name, user %></td>
-<td><%= link_to user.email, user %></td>
+<td><%= link_to user.address, user %></td>
+

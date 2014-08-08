@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
 gem 'rails', '4.1.4'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
@@ -12,9 +11,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'geocoder'
+gem 'simple_form'
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_21]
+  gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-debugger'
   gem 'quiet_assets'
   gem 'rails_layout'
 end

@@ -1,5 +1,6 @@
-<div class="authform">
+<div class="">
   <h3>Edit <%= resource_name.to_s.humanize %></h3>
+  <% resource.build_user_devices %>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :role => 'form'}) do |f| %>
     <%= devise_error_messages! %>
     <div class="form-group">
@@ -13,6 +14,27 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
     </div>
+
+    <h4><b>Devices</b></h4>
+    <div class="row">
+      <div class="form-group">
+      <%= f.fields_for :user_devices do |user_devices| %>
+        <div class="col-sm-4">
+          <%= user_devices.label :printer %>
+          <%= user_devices.check_box :printer %>
+        </div>
+        <div class="col-sm-4">
+          <%= user_devices.label :scanner %>
+          <%= user_devices.check_box :scanner %>
+        </div>
+        <div class="col-sm-4">
+          <%= user_devices.label :fax %>
+          <%= user_devices.check_box :fax %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+
     <fieldset>
       <p>Leave these fields blank if you don't want to change your password.</p>
       <div class="form-group">
@@ -33,9 +55,4 @@
     </fieldset>
     <%= f.submit 'Update', :class => 'button right' %>
   <% end %>
-</div>
-<div class="authform">
-<h3>Cancel Account</h3>
-<p>Unhappy? We'll be sad to see you go.</p>
-<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button right' %>
 </div>
